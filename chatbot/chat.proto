@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.iblis.chat;
+
+message Chat {
+  repeated Session session = 1;
+}
+
+message Session {
+  repeated Turn turn = 1;
+}
+
+message Turn {
+  string speaker = 1;  // 该turn的说话人ID, 应该是全局唯一的
+  string time = 2;  // 该turn发生的时间，format in '2018-01-01 11:00:00'
+  repeated string query = 3;  // 该turn中用户说的话
+}
+
